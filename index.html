@@ -3,24 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/script.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <img src="/1.jpg" alt="img">
-    <a href="#">link 1</a>
+    <input type="file" name="upload_files" multiple>
 
-    <img src="/1.jpg" alt="img">
-    <a href="#">link 2</a>
+    <br><br><br>
+    <a href="#">Ссылка 1</a>
+    <a href="#">Ссылка 2</a>
+    <a href="#">Ссылка 3</a>
 
-    <img src="/1.jpg" alt="img">
-    <a href="#">link 3</a>
+    <script>
+        // счёт линков
+function Count(){
+    
+    const links = document.links;
 
-    <style>
-        img{
-            width: 100px;
-            height: 100px;
-        }
-    </style>
+    let linkCount = 0;
+
+    for(let i = 0; i < links.length; i++){
+        linkCount++;
+    }
+    document.write(`<br> Кол-во ссылок: ${linkCount} <br>`);
+}
+Count();
+
+
+
+function handleFileSelect(event) {
+  console.log(`Выбрано файлов: ${event.target.files.length}`);
+}
+
+const input = document.querySelector('input[type="file"]');
+input.addEventListener('change', handleFileSelect, false);
+
+    </script>
 </body>
 </html>
+
+
+<!-- 
+const images = document.querySelectorAll('img');
+const imageCount = images.length;
+console.log('Количество загруженных изображений: ' + imageCount);
+
+если загружается через код
+
+-->
